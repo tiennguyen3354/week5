@@ -20,12 +20,21 @@ $f3 = Base::instance(); //Object
 
 // Define a default route
 // route is a method of the Base class
-$f3->route('GET /', function () {
-//    echo "My Diner";
+$f3->route('GET /', function ($f3) {
+    //add key-pair value
+    //creating an array inside the function for the page.
+    $f3->set('username', 'tnguyen');
+    $f3->set('password', sha1('password001'));
+    $f3->set('title', 'Working with Templates');
+    $f3->set('temp', 67 );
+    $f3->set('color', 'Purple');
+    $f3->set("vegetables", array("carrot", "eggplant", "brocolli", "potato", "bellpepper"));
+
+
 
     //Display a views page
     $view = new Template();
-    echo $view->render('views/home.html');
+    echo $view->render('views/info.html');
 });
 
 // Run Fat-Free
